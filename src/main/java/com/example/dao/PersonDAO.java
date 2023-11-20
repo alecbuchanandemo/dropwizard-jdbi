@@ -3,7 +3,7 @@ package com.example.dao;
 import com.example.core.Person;
 import com.example.core.mapper.PersonMapper;
 import org.skife.jdbi.v2.sqlobject.Bind;
-import org.skife.jdbi.v3.sqlobject.Define;
+import org.jdbi.v3.sqlobject.statement.Define;
 import org.skife.jdbi.v2.sqlobject.BindBean;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.SqlUpdate;

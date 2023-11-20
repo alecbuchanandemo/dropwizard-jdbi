@@ -38,6 +38,8 @@ dependencies {
     implementation 'io.dropwizard:dropwizard-core:1.0.0'
     implementation 'io.dropwizard:dropwizard-jdbi:1.0.0'
     implementation 'com.h2database:h2:1.4.192'
+    implementation 'org.jdbi:jdbi3-core:3.21.0'
+    implementation 'org.jdbi:jdbi3-sqlobject:3.21.0'
 }
 
 // Configure flyway
