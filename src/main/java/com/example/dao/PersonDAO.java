@@ -2,15 +2,15 @@ package com.example.dao;
 
 import com.example.core.Person;
 import com.example.core.mapper.PersonMapper;
-import org.skife.jdbi.v2.sqlobject.Bind;
-import org.skife.jdbi.v2.sqlobject.BindBean;
-import org.skife.jdbi.v2.sqlobject.SqlQuery;
-import org.skife.jdbi.v2.sqlobject.SqlUpdate;
-import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper;
+import org.jdbi.v3.sqlobject.config.RegisterRowMapper;
+import org.jdbi.v3.sqlobject.statement.SqlQuery;
+import org.jdbi.v3.sqlobject.statement.SqlUpdate;
+import org.jdbi.v3.sqlobject.statement.Bind;
+import org.jdbi.v3.sqlobject.statement.Define;
 
 import java.util.List;
 
-@RegisterMapper(PersonMapper.class)
+@RegisterRowMapper(PersonMapper.class)
 public interface PersonDAO {
 
     @SqlQuery("select * from PERSON")
@@ -20,7 +20,7 @@ public interface PersonDAO {
     Person findById(@Bind("id") int id);
 
     @SqlUpdate("delete from PERSON where ID = :id")
-    int deleteById(@Bind("id") int id);
+    int deleteById(@Define("id") int id);
 
     @SqlUpdate("update PERSON set NAME = :name where ID = :id")
     int update(@BindBean Person person);

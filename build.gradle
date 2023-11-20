@@ -23,15 +23,23 @@ repositories {
     mavenCentral()
 }
 
+// dependencies {
+//     compile (
+//         'io.dropwizard:dropwizard-core:' + dropwizardVersion,
+//         'io.dropwizard:dropwizard-jdbi:' + dropwizardVersion,
+//         'com.h2database:h2:1.4.192'
+//     )
+//     testCompile (
+//         'io.dropwizard:dropwizard-testing:' + dropwizardVersion
+//     )
+// }
+
 dependencies {
-    compile (
-        'io.dropwizard:dropwizard-core:' + dropwizardVersion,
-        'io.dropwizard:dropwizard-jdbi:' + dropwizardVersion,
-        'com.h2database:h2:1.4.192'
-    )
-    testCompile (
-        'io.dropwizard:dropwizard-testing:' + dropwizardVersion
-    )
+implementation 'io.dropwizard:dropwizard-core:4.0.4'
+    implementation 'io.dropwizard:dropwizard-jdbi3:4.0.4'
+    implementation 'com.h2database:h2:1.4.192'
+    implementation 'org.jdbi:jdbi3-core:3.21.0'
+    implementation 'org.jdbi:jdbi3-sqlobject:3.21.0'
 }
 
 // Configure flyway
@@ -51,6 +59,6 @@ test {
     }
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.14.1'
-}
+// task wrapper(type: Wrapper) {
+//     gradleVersion = '2.14.1'
+// }

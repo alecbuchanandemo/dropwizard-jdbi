@@ -5,8 +5,8 @@ import com.example.resources.PersonResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import io.dropwizard.jdbi.DBIFactory;
-import org.skife.jdbi.v2.DBI;
+import io.dropwizard.jdbi3.JdbiFactory;
+import org.jdbi.v3.core.Jdbi;
 
 public class ExampleApplication extends Application<ExampleConfiguration> {
     public static void main(String[] args) throws Exception {
@@ -24,8 +24,8 @@ public class ExampleApplication extends Application<ExampleConfiguration> {
 
     @Override
     public void run(ExampleConfiguration configuration, Environment environment) throws ClassNotFoundException {
-        final DBIFactory factory = new DBIFactory();
-        final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "h2");
+        final JdbiFactory factory = new JdbiFactory();
+        final Jdbi jdbi = factory.build(environment, configuration.getDataSourceFactory(), "h2");
 
         final PersonDAO personDAO = jdbi.onDemand(PersonDAO.class);
         final PersonResource personResource = new PersonResource(personDAO);
