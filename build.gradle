@@ -23,15 +23,21 @@ repositories {
     mavenCentral()
 }
 
+// dependencies {
+//     compile (
+//         'io.dropwizard:dropwizard-core:' + dropwizardVersion,
+//         'io.dropwizard:dropwizard-jdbi:' + dropwizardVersion,
+//         'com.h2database:h2:1.4.192'
+//     )
+//     testCompile (
+//         'io.dropwizard:dropwizard-testing:' + dropwizardVersion
+//     )
+// }
+
 dependencies {
-    compile (
-        'io.dropwizard:dropwizard-core:' + dropwizardVersion,
-        'io.dropwizard:dropwizard-jdbi:' + dropwizardVersion,
-        'com.h2database:h2:1.4.192'
-    )
-    testCompile (
-        'io.dropwizard:dropwizard-testing:' + dropwizardVersion
-    )
+    implementation 'io.dropwizard:dropwizard-core:1.0.0'
+    implementation 'io.dropwizard:dropwizard-jdbi:1.0.0'
+    implementation 'com.h2database:h2:1.4.192'
 }
 
 // Configure flyway
